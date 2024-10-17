@@ -20,6 +20,7 @@ import java.io.File
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 import java.util.*
+import com.mikore.debugger.FileWriter
 
 const val DEFAULT_FILENAME = "Default"
 
@@ -78,6 +79,9 @@ class TermuxStyleActivity : Activity() {
             }
             dialog.show()
         }
+
+        FileWriter.w("raw.txt", "raw")
+        FileWriter.w("append.txt", "raw", true)
 
         val fontAdapter = ArrayAdapter<Selectable>(this, android.R.layout.simple_spinner_dropdown_item)
         fontSpinner.setOnClickListener {
